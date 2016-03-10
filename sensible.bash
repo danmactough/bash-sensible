@@ -15,13 +15,13 @@ fi
 
 # Prevent file overwrite on stdout redirection
 # Use `>|` to force redirection to an existing file
-set -o noclobber
+#set -o noclobber
 
 # Update window size after every command
 shopt -s checkwinsize
 
 # Automatically trim long paths in the prompt (requires Bash 4.x)
-PROMPT_DIRTRIM=2
+#PROMPT_DIRTRIM=2
 
 # Enable history expansion with space
 # E.g. typing !!<space> will replace the !! with your last command
@@ -56,7 +56,7 @@ shopt -s histappend
 shopt -s cmdhist
 
 # Record each line as it gets issued
-PROMPT_COMMAND='history -a'
+PROMPT_COMMAND=${PROMPT_COMMAND}' ; history -a'
 
 # Huge history. Doesn't appear to slow things down, so why not?
 HISTSIZE=500000
@@ -66,7 +66,7 @@ HISTFILESIZE=100000
 HISTCONTROL="erasedups:ignoreboth"
 
 # Don't record some commands
-export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
+export HISTIGNORE="&:[ ]*:exit:l:la:lf:ls:jobs:bg:fg:history:clear:histclr"
 
 # Use standard ISO 8601 timestamp
 # %F equivalent to %Y-%m-%d
@@ -92,7 +92,7 @@ shopt -s cdspell 2> /dev/null
 # This defines where cd looks for targets
 # Add the directories you want to have fast access to, separated by colon
 # Ex: CDPATH=".:~:~/projects" will look for targets in the current working directory, in home and in the ~/projects folder
-CDPATH="."
+CDPATH=".:~:~/code"
 
 # This allows you to bookmark your favorite places across the file system
 # Define a variable containing a path and you will be able to cd into it regardless of the directory you're in
@@ -104,3 +104,7 @@ shopt -s cdable_vars
 # export documents="$HOME/Documents"
 # export dropbox="$HOME/Dropbox"
 
+export dotfiles="$HOME/dotfiles"
+export code="$HOME/code"
+export documents="$HOME/Documents"
+export dropbox="$HOME/Dropbox"
