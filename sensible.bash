@@ -56,7 +56,7 @@ shopt -s histappend
 shopt -s cmdhist
 
 # Record each line as it gets issued
-PROMPT_COMMAND=${PROMPT_COMMAND}' ; history -a'
+PROMPT_COMMAND="history -a ; history -n ; ${PROMPT_COMMAND}"
 
 # Huge history. Doesn't appear to slow things down, so why not?
 HISTSIZE=500000
